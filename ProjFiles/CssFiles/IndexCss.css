@@ -1,0 +1,50 @@
+.indexPage
+     {
+       height: 615px;
+         /*height : 900px;*/
+         width : 100%;
+         padding: 0;
+         margin: 0;
+     }
+.pgmain
+{
+    height : 600px;
+    width : 100%;
+    padding: 0;
+}
+.indexHeader
+{
+    height : 15%;
+    width : 100%;
+    background-color: #006400;
+    padding: 0;
+    margin: 0;
+    float: left;
+    /*position: fixed;*/
+    /*z-index: 1;*/
+    /*display: inline;*/
+}
+.indexBody
+{
+    height : 85%;
+    width : 100%;
+    background-color: #006400;
+    padding: 0;
+    margin: 0;
+    float: left;
+    /*display: inline;
+    float: right;*/
+}
+.frames
+{
+    border-width: 0px;
+   /*border-color: currentColor;*/
+}
+
+.indexImgHeader
+{
+  width: 100%;
+  height: 100%;
+  /*object-fit: fill;*/
+  /*object-fit: contain;*/
+}
