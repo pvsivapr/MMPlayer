@@ -1,3 +1,19 @@
+function getUIData()
+{
+  var bodyLeftUI = document.getElementById("audioLeftBody");
+  var SongInfoUI = document.getElementById("songInfoBody");
+  bodyLeftUI.removeChild(SongInfoUI);
+  // localStorage.setItem("hello", y);
+  for(var i= 1; i<12; i++)
+  {
+
+    var z = SongInfoUI.cloneNode(true);
+    bodyLeftUI.appendChild(z);
+    var musicImage = document.getElementById("musicImg");
+    musicImage.src = "../Images/music"+i.toString()+".jpg";
+  }
+}
+
 function control() {
   var yourAudio = document.getElementById('audioPlayer'),
       ctrl = document.getElementById('audioControl');
