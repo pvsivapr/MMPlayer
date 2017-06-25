@@ -15,7 +15,7 @@ function getUIData()
     var songBody = "<div id=\"songInfoBody\" style=\"display: block; height : 12%; width : 100%; margin: 0px; padding : 0px; overflow : auto;\">"+
       "<img id=\"musicImg\" style=\"height : 100%; width : 25%; float:left\" src=\"..\\Images\\music"+i.toString()+".jpg\" type=\"image/jpg\" >"+
       "</img>"+
-      "<p style=\"width : 75%; float:left\">This Song</p>"+
+      "<p align=\"left\" style=\"width : 75%; float:left;\">This Song</p>"+
     "</div>";
     bodyLeftUI.innerHTML += songBody;
     // var musicImage = document.getElementById("musicImg");
