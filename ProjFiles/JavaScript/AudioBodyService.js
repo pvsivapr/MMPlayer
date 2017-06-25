@@ -4,13 +4,22 @@ function getUIData()
   var SongInfoUI = document.getElementById("songInfoBody");
   bodyLeftUI.removeChild(SongInfoUI);
   // localStorage.setItem("hello", y);
+  // document.write("<div id=\"lvtemplate\" style=\" position:static; margin:auto; padding-top: 12px; padding-right: 13px; padding-bottom: 16px; padding-left: 15px; height:400px; width:160px; float:left; vertical-align:middle\">"+"\n"+"<center>"+"\n"+"<h2>"+"\n"+" hi, hello"+"\n"+"</h2>"+"\n"+"<a href=\"http://www.google.com\" >"+"\n"+"<img src=ProjFiles"+"\\"+"Images"+"\\"+"image12.jpg />"+"\n"+"</a>"+"\n"+"<h3>"+"\n"+"see you..."+"\n"+"</h3>"+"\n"+"</center>"+"\n"+"</div>");
+
   for(var i= 1; i<12; i++)
   {
-
-    var z = SongInfoUI.cloneNode(true);
-    bodyLeftUI.appendChild(z);
-    var musicImage = document.getElementById("musicImg");
-    musicImage.src = "../Images/music"+i.toString()+".jpg";
+    // var musicImage = document.getElementById("musicImg");
+    // musicImage.src = "../Images/music"+i.toString()+".jpg";
+    // var z = SongInfoUI.cloneNode(true);
+    // bodyLeftUI.appendChild(z);
+    var songBody = "<div id=\"songInfoBody\" style=\"display: block; height : 12%; width : 100%; margin: 0px; padding : 0px; overflow : auto;\">"+
+      "<img id=\"musicImg\" style=\"height : 100%; width : 25%; float:left\" src=\"..\\Images\\music"+i.toString()+".jpg\" type=\"image/jpg\" >"+
+      "</img>"+
+      "<p style=\"width : 75%; float:left\">This Song</p>"+
+    "</div>";
+    bodyLeftUI.innerHTML += songBody;
+    // var musicImage = document.getElementById("musicImg");
+    // musicImage.src = "../Images/music"+i.toString()+".jpg";
   }
 }
 
