@@ -21,6 +21,14 @@ function getUIData()
     // var musicImage = document.getElementById("musicImg");
     // musicImage.src = "../Images/music"+i.toString()+".jpg";
   }
+
+  var bodyMiddleUI = document.getElementById("audioMiddleBody");
+  for(var i= 1; i<100; i++)
+  {
+    var songList = "<input type=\"checkbox\" name=\"vehicle\" value=\"Bike\"> I have a bike<br>";
+    bodyMiddleUI.innerHTML += songList;
+  }
+
 }
 
 function control() {
