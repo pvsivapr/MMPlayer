@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html style="height:100%;width:100%">
+	<head>
+        <meta charset="UTF-8">
+		<title color="red">welcome</title>
+        <link rel="icon" type="image/jpg" href="ProjFiles\Images\TitleBarIcon.jpg" sizes="16x16">
+        <link rel="stylesheet" href="ProjFiles\CssFiles\AddSongStyle.css" type="text/css" media="screen" />
+				<!-- <link rel="stylesheet" href="ProjFiles\CssFiles\dropstyle.css" type="text/css" media="screen" />-->
+        <script src="ProjFiles/HtmlFiles/AddSongFiles/AddSongFilesService.js" type="text/javascript"></script>
+	</head>
+	<body style="display: block; margin: 0px; padding : 0px; overflow : auto;" bgcolor="lightgreen">
+		<center>
+            <div class="indexDetailPage">
+              <div>
+                <center>
+           <table>
+               <form method="post"  action="..\HtmlFiles\AddSongFiles\AddSongFilesPHPService.php" enctype="multipart/form-data" name="regData">
+                   <tr>
+                       <td>
+                           *Item ID
+                       </td>
+                       <td>
+                           <input type="text" name="itemId" required/>
+                       </td>
+                   </tr>
+                   <tr>
+                       <td>
+                           *Movie ID
+                       </td>
+                       <td>
+                           <input type="text" name="movieId" required />
+                       </td>
+                   </tr>
+                   <tr>
+                       <td>
+                           *Movie Name
+                       </td>
+                       <td>
+                           <input type="text" name="movieName" required />
+                       </td>
+                   </tr>
+                   <tr>
+                       <td>
+                           *Movie Logo URL
+                       </td>
+                       <td>
+                           <input type="text" name="movieLogoURL" required />
+                       </td>
+                   </tr>
+                   <tr>
+                       <td>
+                           *No Of Songs
+                       </td>
+                       <td>
+                           <input type="text" name="noOfSongs" required />
+                       </td>
+                   </tr>
+                   <tr>
+                       <td>
+                           <input type="submit" name="registration"/>
+                       </td>
+                   </tr>
+               </form>
+           </table>
+        </center>
+              </div>
+            </div>
+		</center>
+	</body>
+</html>

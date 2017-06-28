@@ -1,0 +1,98 @@
+<?php
+
+/*
+include 'ChromePhp.php';
+ChromePhp::log('This is just a log message');
+ChromePhp::warn("This is a warning message " ) ;
+ChromePhp::error("This is an error message" ) ;
+ChromePhp::log($_SERVER);
+
+// using labels
+foreach ($_SERVER as $key => $value) {
+    ChromePhp::log($key, $value);
+     echo '<pre>';
+    print_r("check 1");
+    echo '</pre>';
+
+}*/
+$servername = "mysql4.gear.host";
+$username = "mmplayerdb";
+$password = "\$iva02071992mmplayer";
+$dbName = "mmplayerdb";
+$host = 3306;
+
+// define variables and set to empty values
+$id="";$mId="";$mName="";$mNoSongs="";$mLogo="";
+$log_Err ="";
+$shallAllow =false;
+
+if ($_SERVER["REQUEST_METHOD"] == "POST")
+{
+    if (empty($_POST["itemId"]))
+    {
+        $log_Err = "username is required";
+        echo($log_Err);
+    }
+    else
+    {
+         if (empty($_POST["movieId"]))
+         {
+             $log_Err = "Firstname is required";
+             echo($log_Err);
+         }
+        else
+        {
+            if (empty($_POST["movieName"]))
+            {
+                $log_Err = "lastname is required";
+                echo($log_Err);
+            }
+            else
+            {
+                if (empty($_POST["movieLogoURL"]))
+                {
+                    $log_Err = "Mobile number is required";
+                    echo($log_Err);
+                }
+                else
+                {
+                     if (empty($_POST["noOfSongs"]))
+                     {
+                         $log_Err = "Email is required";
+                         echo($log_Err);
+                     }
+                    else
+                    {
+                      $id=$_POST["itemId"];
+                      $mId=$_POST["movieId"];
+                      $mName=$_POST["movieName"];
+                      $mNoSongs=$_POST["movieLogoURL"];
+                      $mLogo=$_POST["noOfSongs"];
+                      $shallAllow=true;
+                    }
+                }
+            }
+        }
+    }
+    if($shallAllow==true)
+    {
+        try
+        {
+            $connn = new PDO("mysql:host=$servername;dbname=$dbName", $username, $password);
+            $connn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $sql = "INSERT INTO webhostdb.userinfo (id, movieId, movieName, noOfSongs, movieLogoURL) VALUES ('$id', '$mId', '$mName', '$mNoSongs', '$mLogo')";
+            $connn->exec($sql);
+            echo "Added successfully";
+        }
+        catch(PDOException $e)
+        {
+            echo "Connection failed: " . $e->getMessage();
+            /*echo ('<script language="javascript">');
+            echo ('alert(<?php $e->getMessage();  ?>)');  //not showing an alert box.
+            echo ('</script>');
+            */
+        }
+    }
+}
+
+?>
