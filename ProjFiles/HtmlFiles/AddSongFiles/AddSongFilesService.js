@@ -21,7 +21,7 @@ $mLogo=$_POST["movieLogoURL"];
           document.alert(data1);
       }
   };
-  xmlhttp.open("POST", "AddSongFilesPHPService.php", true);
+  xmlhttp.open("POST", "AddSongFilesJSPHPService.php", true);
   xmlhttp.setRequestHeader("Content-type", "application/json");
   xmlhttp.send("x=" + dbParam);
 }
