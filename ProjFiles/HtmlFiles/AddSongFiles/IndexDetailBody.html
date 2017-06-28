@@ -14,7 +14,7 @@
               <div>
                 <center>
            <table>
-               <form method="post"  action="AddSongFilesPHPService.php" enctype="multipart/form-data" name="regData">
+               <form method="post"  action="POST" enctype="multipart/form-data" name="regData">
                    <tr>
                        <td>
                            *Item ID
@@ -57,7 +57,7 @@
                    </tr>
                    <tr>
                        <td>
-                           <input type="submit" name="registration"/>
+                           <input type="submit" name="registration" onclick="SubmitSong()"/>
                        </td>
                    </tr>
                </form>
