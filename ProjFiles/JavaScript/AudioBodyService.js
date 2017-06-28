@@ -6,7 +6,67 @@ function getUIData()
   // localStorage.setItem("hello", y);
   // document.write("<div id=\"lvtemplate\" style=\" position:static; margin:auto; padding-top: 12px; padding-right: 13px; padding-bottom: 16px; padding-left: 15px; height:400px; width:160px; float:left; vertical-align:middle\">"+"\n"+"<center>"+"\n"+"<h2>"+"\n"+" hi, hello"+"\n"+"</h2>"+"\n"+"<a href=\"http://www.google.com\" >"+"\n"+"<img src=ProjFiles"+"\\"+"Images"+"\\"+"image12.jpg />"+"\n"+"</a>"+"\n"+"<h3>"+"\n"+"see you..."+"\n"+"</h3>"+"\n"+"</center>"+"\n"+"</div>");
 
-  for(var i= 1; i<12; i++)
+obj = { "table":"customers", "limit":10 };
+dbParam = JSON.stringify(obj);
+xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        var urlsong = "https://docs.google.com/uc?export=download&id=0Bwpe9ad5TblvMlAzbWxsVWxDdU0";//"https://drive.google.com/file/d/0Bwpe9ad5TblvMlAzbWxsVWxDdU0/view";
+        var myObj = JSON.parse(this.response);
+        var dataa1 = myObj.movie_details;
+        var dataa2 = myObj.movie_details[0];
+        var dataa3 = myObj.movie_details[1];
+        var dataa4 = myObj.movie_details[2];
+        var dataa5 = myObj.movie_details[3];
+        var dataaa1 = this.response;
+        var dataaa2 = this.responseType;
+        var dataaa3 = this.responseXML;
+        var dataaa4 = this.responseText;
+        var dataaa5 = this.getResponseHeader;
+        for(i=0; i<myObj.movie_details.length; i++ )
+        {
+
+            var songBody = "<div id=\"songInfoBody\" style=\"display: block; height : 12%; width : 100%; margin: 0px; padding : 0px; overflow : auto;\">"+
+      "<img id=\"musicImg\" style=\"height : 100%; width : 25%; float:left\" src=\"https://docs.google.com/uc?export=download&id="+myObj.movie_details[i].movieLogoURL+"\" type=\"image/jpg\" >"+
+      "</img>"+
+      "<p align=\"left\" style=\"width : 75%; float:left;\">"+myObj.movie_details[i].movieName+"</p>"+
+    "</div>";
+
+            /*var songBody = "<div id=\"songInfoBody\" style=\"display: block; height : 12%; width : 100%; margin: 0px; padding : 0px; overflow : auto;\">"+
+      "<img id=\"musicImg\" style=\"height : 100%; width : 25%; float:left\" src=\""+urlsong+"\" type=\"image/jpg\" >"+
+      "</img>"+
+      "<p align=\"left\" style=\"width : 75%; float:left;\">"+myObj.movie_details[i].movieName+"</p>"+
+    "</div>";
+
+            var songBody = "<div id=\"songInfoBody\" style=\"display: block; height : 12%; width : 100%; margin: 0px; padding : 0px; overflow : auto;\">"+
+      "<img id=\"musicImg\" style=\"height : 100%; width : 25%; float:left\" src=\""+myObj.movie_details[i].movieLogoURL+"\" type=\"image/jpg\" >"+
+      "</img>"+
+      "<p align=\"left\" style=\"width : 75%; float:left;\">"+myObj.movie_details[i].movieName+"</p>"+
+    "</div>";
+
+            var songBody = "<div id=\"songInfoBody\" style=\"display: block; height : 12%; width : 100%; margin: 0px; padding : 0px; overflow : auto;\">"+
+      "<img id=\"musicImg\" style=\"height : 100%; width : 25%; float:left\" src=\"..\\Images\\music"+i+".jpg\" type=\"image/jpg\" >"+
+      "</img>"+
+      "<p align=\"left\" style=\"width : 75%; float:left;\">"+myObj.movie_details[i].movieName+"</p>"+
+    "</div>";*/
+
+
+            bodyLeftUI.innerHTML += songBody;
+        }
+
+        var data1 = this.response;
+        var data2 = this.responseType;
+        var data3 = this.responseXML;
+        var data4 = this.responseText;
+        var data5 = this.getResponseHeader;
+
+    }
+};
+xmlhttp.open("GET", "../PHP/PHPServices/ReceiveService.php?userRequest=GetAllMovies", true);
+xmlhttp.setRequestHeader("Content-type", "application/json");
+xmlhttp.send();
+
+  /*for(var i= 1; i<12; i++)
   {
     // var musicImage = document.getElementById("musicImg");
     // musicImage.src = "../Images/music"+i.toString()+".jpg";
@@ -20,7 +80,7 @@ function getUIData()
     bodyLeftUI.innerHTML += songBody;
     // var musicImage = document.getElementById("musicImg");
     // musicImage.src = "../Images/music"+i.toString()+".jpg";
-  }
+  }*/
 
   var bodyMiddleUI = document.getElementById("audioMiddleBody");
   for(var i= 1; i<100; i++)
