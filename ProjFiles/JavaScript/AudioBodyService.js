@@ -13,16 +13,16 @@ xmlhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
         var urlsong = "https://docs.google.com/uc?export=download&id=0Bwpe9ad5TblvMlAzbWxsVWxDdU0";//"https://drive.google.com/file/d/0Bwpe9ad5TblvMlAzbWxsVWxDdU0/view";
         var myObj = JSON.parse(this.response);
-        var dataa1 = myObj.movie_details;
-        var dataa2 = myObj.movie_details[0];
-        var dataa3 = myObj.movie_details[1];
-        var dataa4 = myObj.movie_details[2];
-        var dataa5 = myObj.movie_details[3];
-        var dataaa1 = this.response;
-        var dataaa2 = this.responseType;
-        var dataaa3 = this.responseXML;
-        var dataaa4 = this.responseText;
-        var dataaa5 = this.getResponseHeader;
+        // var dataa1 = myObj.movie_details;
+        // var dataa2 = myObj.movie_details[0];
+        // var dataa3 = myObj.movie_details[1];
+        // var dataa4 = myObj.movie_details[2];
+        // var dataa5 = myObj.movie_details[3];
+        // var dataaa1 = this.response;
+        // var dataaa2 = this.responseType;
+        // var dataaa3 = this.responseXML;
+        // var dataaa4 = this.responseText;
+        // var dataaa5 = this.getResponseHeader;
         for(i=0; i<myObj.movie_details.length; i++ )
         {
 
