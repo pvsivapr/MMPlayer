@@ -66,8 +66,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
                       $id=$_POST["itemId"];
                       $mId=$_POST["movieId"];
                       $mName=$_POST["movieName"];
-                      $mNoSongs=$_POST["movieLogoURL"];
-                      $mLogo=$_POST["noOfSongs"];
+                      $mNoSongs=$_POST["noOfSongs"];
+                      $mLogo=$_POST["movieLogoURL"];
                       $shallAllow=true;
                     }
                 }
@@ -76,23 +76,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     }
     if($shallAllow==true)
     {
-        try
-        {
+      try
+          {
             $connn = new PDO("mysql:host=$servername;dbname=$dbName", $username, $password);
             $connn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "INSERT INTO webhostdb.userinfo (id, movieId, movieName, noOfSongs, movieLogoURL) VALUES ('$id', '$mId', '$mName', '$mNoSongs', '$mLogo')";
+            $sql = "INSERT INTO mmplayerdb.mmplayermovies (id, movieId, movieName, movieLogoURL, noOfSongs) VALUES ('$id', '$mId', '$mName', '$mLogo', '$mNoSongs')";
             $connn->exec($sql);
-            echo "Added successfully";
-        }
-        catch(PDOException $e)
-        {
+            echo "<script type='text/javascript'>alert('Added successfully :)')</script>";
+             // echo "Added successfully";
+          }
+          catch(PDOException $e)
+          {
+            $errMsgss = "Connection failed: " . $e->getMessage();
+            // echo "<script type='text/javascript'>alert('".$errMsgss."')</script>";
             echo "Connection failed: " . $e->getMessage();
             /*echo ('<script language="javascript">');
             echo ('alert(<?php $e->getMessage();  ?>)');  //not showing an alert box.
             echo ('</script>');
             */
+          }
         }
-    }
-}
-
+      }
 ?>
