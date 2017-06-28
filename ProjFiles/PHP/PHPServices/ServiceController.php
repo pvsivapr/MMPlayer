@@ -16,6 +16,9 @@ class RequestHandler// extends ServerStatus
             case"UserLogin":
                 return $response = $uServices -> Login($data);
                 break;
+            case "GetAllMovies":
+                return $response = $uServices -> GetMovies();
+                break;
             case "AllUsersData":
                 return $response = $uServices -> AllUsers($data);
                 break;
@@ -24,7 +27,7 @@ class RequestHandler// extends ServerStatus
                 break;
         }
     }
-    
+
 }
 
 ?>

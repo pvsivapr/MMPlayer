@@ -11,7 +11,7 @@ $method = $_SERVER['REQUEST_METHOD'];
 $requestContentType = $_SERVER["CONTENT_TYPE"];
 //echo $requestContentType."\n";
 
-//to get values from url that attached 
+//to get values from url that attached
 $userRequest = "";
 if(isset($_GET["userRequest"]))
 {
@@ -52,7 +52,7 @@ else if(strpos($requestContentType,'application/xml') !== false)
 }
 else
 {
-    
+
 }
 
 function encodeXml($responseData) {
@@ -63,22 +63,22 @@ function encodeXml($responseData) {
 		}
 		return $xml->asXML();
 	}
-	
+
 function encodeHtml($responseData) {
-	
+
 		$htmlResponse = "<table border='1'>";
 		foreach($responseData as $key=>$value) {
     			$htmlResponse .= "<tr><td>". $key. "</td><td>". $value. "</td></tr>";
 		}
 		$htmlResponse .= "</table>";
-		return $htmlResponse;		
+		return $htmlResponse;
 	}
-	
-	
+
+
 function encodeJson($responseData) {
 		$jsonResponse = json_encode($responseData);
 		//var_dump("receiveservice.php".$jsonResponse);
-		return $jsonResponse;		
+		return $jsonResponse;
 	}
 
 ?>
