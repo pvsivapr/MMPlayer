@@ -2,8 +2,6 @@
 <html style="height:100%;width:100%">
 	<head>
         <meta charset="UTF-8">
-		<title color="red">welcome</title>
-        <link rel="icon" type="image/jpg" href="ProjFiles\Images\TitleBarIcon.jpg" sizes="16x16">
         <link rel="stylesheet" href="AddSongStyle.css" type="text/css" media="screen" />
 				<!-- <link rel="stylesheet" href="ProjFiles\CssFiles\dropstyle.css" type="text/css" media="screen" />-->
         <script src="AddSongFilesService.js" type="text/javascript"></script>
@@ -11,59 +9,112 @@
 	<body style="display: block; margin: 0px; padding : 0px; overflow : auto;" bgcolor="lightgreen">
 		<center>
             <div class="indexDetailPage">
-              <div>
+              <div style=" height:100%; width:50%;display: block; margin: 0px; padding : 0px; float : left;">
                 <center>
-           <table>
-               <form method="post" enctype="multipart/form-data" name="regData">
-                   <tr>
-                       <td>
-                           *Item ID
-                       </td>
-                       <td>
-                           <input type="text" name="itemId" required/>
-                       </td>
-                   </tr>
-                   <tr>
-                       <td>
-                           *Movie ID
-                       </td>
-                       <td>
-                           <input type="text" name="movieId" required />
-                       </td>
-                   </tr>
-                   <tr>
-                       <td>
-                           *Movie Name
-                       </td>
-                       <td>
-                           <input type="text" name="movieName" required />
-                       </td>
-                   </tr>
-                   <tr>
-                       <td>
-                           *Movie Logo URL
-                       </td>
-                       <td>
-                           <input type="text" name="movieLogoURL" required />
-                       </td>
-                   </tr>
-                   <tr>
-                       <td>
-                           *No Of Songs
-                       </td>
-                       <td>
-                           <input type="text" name="noOfSongs" required />
-                       </td>
-                   </tr>
-                   <tr>
-                       <td>
-                           <input type="submit" name="registration" onclick="SubmitSong()"/>
-                       </td>
-                   </tr>
-               </form>
-           </table>
-        </center>
-              </div>
+                    <table>
+                        <form name="addMovieForm" action="" onsubmit="SubmitMovie(); return false;"> <!-- method="post"  enctype="multipart/form-data" -->
+                            <tr>
+                                <td>
+                                    *Item ID
+                                </td>
+                                <td>
+                                    <input type="text" name="itemId"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    *Movie ID
+                                </td>
+                                <td>
+                                    <input type="text" name="movieId" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    *Movie Name
+                                </td>
+                                <td>
+                                    <input type="text" name="movieName" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    *Movie Logo URL
+                                </td>
+                                <td>
+                                    <input type="text" name="movieLogoURL" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    *No Of Songs
+                                </td>
+                                <td>
+                                    <input type="text" name="noOfSongs" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="submit" name="submitMovie" value="Submit"/>
+                                </td>
+                            </tr>
+                        </form>
+                    </table>
+                  </center>
+                </div>
+                <!--<div style=" height:100%; width:50%;display: block; margin: 0px; padding : 0px; float : left;">
+                <center>
+                    <table>
+                        <form method="post" enctype="multipart/form-data" name="addSongForm" onsubmit="SubmitSong()">
+                            <tr>
+                                <td>
+                                    *Item ID
+                                </td>
+                                <td>
+                                    <input type="text" name="itemId" required/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    *Movie ID
+                                </td>
+                                <td>
+                                    <input type="text" name="movieId" required />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    *Movie Name
+                                </td>
+                                <td>
+                                    <input type="text" name="movieName" required />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    *Movie Logo URL
+                                </td>
+                                <td>
+                                    <input type="text" name="movieLogoURL" required />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    *No Of Songs
+                                </td>
+                                <td>
+                                    <input type="text" name="noOfSongs" required />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="submit" name="submitSong"/>
+                                </td>
+                            </tr>
+                        </form>
+                    </table>
+                  </center>
+                </div>-->
             </div>
 		</center>
 	</body>
