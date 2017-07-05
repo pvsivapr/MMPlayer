@@ -6,7 +6,7 @@ function SubmitMovie()
   var x3 = document.forms["addMovieForm"]["movieName"].value;
   var x4 = document.forms["addMovieForm"]["noOfSongs"].value;
   var x5 = document.forms["addMovieForm"]["movieLogoURL"].value;
-  var postObject = { "methodName":"AddMovie", "id":x1, "movie_id":x2, "movie_name":x3, "no_of_songs":x4, "movie_logo_url":x5 };
+  var postObject = { "id":x1, "movie_id":x2, "movie_name":x3, "no_of_songs":x4, "movie_logo_url":x5 };
   dbParam = JSON.stringify(postObject);
   dbParam2 = 'id='+x1+'&movie_id='+x2+'&movie_name='+x3+'&no_of_songs='+x4+'&movie_logo_url='+x5;
   xmlhttp = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
