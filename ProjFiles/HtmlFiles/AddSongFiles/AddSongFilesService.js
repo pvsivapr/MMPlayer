@@ -1,6 +1,5 @@
 function SubmitMovie()
 {
-  alert("clicked");
   // var obj, dbParam, xmlhttp, myObj, x, txt = "";
   var x1 = document.forms["addMovieForm"]["itemId"].value;
   var x2 = document.forms["addMovieForm"]["movieId"].value;
