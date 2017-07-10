@@ -38,6 +38,34 @@
   display:none;
 }
 
+.audioBodyRTB
+{
+  height: 70%;
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  float: left;
+  overflow: scroll;
+}
+.audioBodyRTB::-webkit-scrollbar
+{
+  display:none;
+}
+
+.audioBodyRBB
+{
+  height: 45%;
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  float: none;
+  overflow: auto;
+}
+.audioBodyRBB::-webkit-scrollbar
+{
+  display:none;
+}
+
 .frames
 {
     border-width: 0px;
