@@ -6,26 +6,53 @@
     <!-- <link rel="icon" type="image/jpg" href="ProjFiles\Images\TitleBarIcon.jpg" sizes="16x16"> -->
     <link rel="stylesheet" href="..\CssFiles\AudioBodyStyle.css" type="text/css" media="screen" />
 		<!-- <link rel="stylesheet" href="ProjFiles\CssFiles\dropstyle.css" type="text/css" media="screen" /> -->
-    <script src="../JavaScript/AudioBodyService.js" type="text/javascript"></script>
+    <script src="../JavaScript/AudioBodyServices.js" type="text/javascript"></script>
 	</head>
 	<body onload="getUIData()" style="display: block; margin: 0px; padding : 0px; overflow : auto;" bgcolor="lightgreen">
 		<center style="display: block; height : 100%; width : 100%; margin: 0px; padding : 0px;">
             <div class="audioBodyPage">
-                <div class="audioBodyLBR" id="audioLeftBody">
-									<div id="songInfoBody" style="display: block; height : 12%; width : 100%; margin: 0px; padding : 0px; overflow : auto;">
-										<img id="musicImg" style="height : 100%; width : 25%; float:left" src="..\Images\music1.jpg" type="image/jpg" >
-										</img>
-										<p align="right" style="padding-left:10px; width : 75%; float:left">This Song</p>
+                <div class="audioBodyLBR">
+									<div style="height : 9%; width : 100%; float:left; background-color: yellow;" >
+					        	<img src="../Images/search128.png" onclick="searchBackClicked(this)" data-id="search" type="image/png" style="height : 100%; width : 10%; float:left;" id="searchBack" ></img>
+					        	<input oninput="getSearch(this)" style="height : 95%; width : 90%; float:right; border: none; background-color: transparent;" type="text"></textarea>
+					        </div>
+									<div style="height : 91%; width : 100%; float:left;" id="audioLeftBody">
+										<!-- <div id="songInfoBody" style="display: block; height : 12%; width : 100%; margin: 0px; padding : 0px; overflow : auto;">
+											<img id="musicImg" style="height : 100%; width : 25%; float:left" src="..\Images\music1.jpg" type="image/jpg" >
+											</img>
+											<p align="right" style="padding-left:10px; width : 75%; float:left">This Song</p>
+										</div> -->
 									</div>
 									<!-- <iframe class="frames" src="ProjFiles/HtmlFiles/IntroPage.html" height="100%" width="100%">
 									</iframe> -->
                 </div>
                 <div class="audioBodyLBR" id="audioMiddleBody">
-									<input type="checkbox" name="vehicle" value="Bike"> I have a bike<br>
+									<!-- <input type="checkbox" name="vehicle" value="Bike"> I have a bike<br> -->
                 </div>
-                <div class="audioBodyLBR">
-									<iframe class="frames" src="" height="100%" width="100%">
-									</iframe>
+                <div class="audioBodyLBR" id="audioRightBody">
+									<div style="display: block; height : 70%; width : 100%; margin: 0px; padding : 0px;" id="audioRightTopBody">
+									</div>
+									<div style="display: block; height : 30%; width : 100%; margin: 0px; padding : 0px;" id="audioRightBottomBody">
+										<audio id=audioPlayer controls="controls"><!--style="visibility:hidden"-->
+									     <source src="https://docs.google.com/uc?export=download&id=0Bwpe9ad5TblvZlZaNHRkSFdxeG8">
+									  </audio>
+										<img class="audioPlay" src="../Images/prevsong.png" type="image/png" onclick="AudioAction('PrevSong')">
+								    </img>
+								    <!-- <img class="audioPlay" src="stop.png" type="image/png" onclick="AudioAction('Stop')">
+								    </img> -->
+								    <img class="audioPlay" src="../Images/pause.png" type="image/png" onclick="AudioAction('Pause')">
+								    </img>
+								    <img class="audioPlay" src="../Images/play.png" type="image/png" onclick="AudioAction('Start')">
+								    </img>
+								    <img class="audioPlay" src="../Images/nextsong.png" type="image/png" onclick="AudioAction('NextSong')">
+								    </img>
+								    <img class="audioPlay" src="../Images/shuffle.png" type="image/png" onclick="AudioAction('Shuffle')">
+								    </img>
+								    <img class="audioPlay" src="../Images/share.png" type="image/png" onclick="AudioAction('Share')">
+								    </img>
+									</div>
+									<!-- <iframe class="frames" src="" height="100%" width="100%">
+									</iframe> -->
                 </div>
             </div>
 		</center>

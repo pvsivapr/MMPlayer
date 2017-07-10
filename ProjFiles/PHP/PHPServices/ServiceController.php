@@ -22,6 +22,9 @@ class RequestHandler// extends ServerStatus
             case "AllUsersData":
                 return $response = $uServices -> AllUsers($data);
                 break;
+            case "GetAllSongs":
+                return $response = $uServices -> GetSongs($data);
+                break;
             default:
                 return $response = $uServices -> FaultMethod($data);
                 break;

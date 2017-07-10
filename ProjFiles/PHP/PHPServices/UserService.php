@@ -159,7 +159,34 @@ class UserServices extends ServerStatus
 
     function GetSongs($data)
     {
-
+        try
+        {
+            $movieId = $data['movieId'];
+            $conn = $this->Connection();
+            $sql = "SELECT * from mmplayerdb.mmplayersongs WHERE movieId="."\"".$movieId."\"";
+            $res_data = $conn->prepare($sql);
+            $res_data->execute();
+            $_response = $res_data->setFetchMode(PDO::FETCH_ASSOC);
+            $response = $res_data->fetchAll();
+            $response = array(
+                    "message"=>"Login is successful",
+                    "code"=>"1",
+                    "SongDetails"=>$response
+                );
+                return $response;
+        }
+        catch(PDOException $e)
+        {
+          // echo 'Exception -> ';
+          //   var_dump($e->getMessage());
+            $user_data = array();
+            $response = array("message"=>"Songs cannot be retrived.".$e->getMessage(),
+                             "code"=>"0",
+                              "UserDetails"=>""
+                             );
+            return $response;
+            //echo "Connection failed: " . $e->getMessage();
+        }
     }
 
     function AllUsers($data)

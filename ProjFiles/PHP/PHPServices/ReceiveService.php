@@ -50,6 +50,12 @@ else if(strpos($requestContentType,'application/xml') !== false)
     print_r($_REQUEST."\n");
     //echo $response;
 }
+else if(strpos($requestContentType,'application/x-www-form-urlencoded') !== false)
+{
+    $response = new SimpleXMLElement($response);
+    print_r($_REQUEST."\n");
+    //echo $response;
+}
 else
 {
 
