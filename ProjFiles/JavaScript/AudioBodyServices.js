@@ -1,33 +1,31 @@
+var myList = new Array();
+var z =0;
+    //  myList.push('Hello');
 function getUIData()
 {
   var bodyLeftUI = document.getElementById("audioLeftBody");
-xmlhttp = new XMLHttpRequest();
-xmlhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
+  xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function()
+  {
+    if (this.readyState == 4 && this.status == 200)
+    {
         var urlsong = "https://docs.google.com/uc?export=download&id=0Bwpe9ad5TblvMlAzbWxsVWxDdU0";//"https://drive.google.com/file/d/0Bwpe9ad5TblvMlAzbWxsVWxDdU0/view";
         var myObj = JSON.parse(this.response);
         var songBody="";
         for(i=0; i<myObj.movie_details.length; i++ )
         {
           songBody += "<div id=\"songInfoBody\" data-info=\"some info here\" data-other-info=\"more info here\" style=\"display: block; height : 12%; width : 100%; margin: 0px; padding : 0px; overflow : auto;\">"+
-      "<img id=\"musicImg\" style=\"height : 100%; width : 25%; float:left\" src=\"https://docs.google.com/uc?export=download&id="+myObj.movie_details[i].movieLogoURL+"\" type=\"image/jpg\" >"+
-      "</img>"+
-      "<p align=\"left\" style=\"width : 75%; cursor:pointer; float:left;\" data-id=\""+myObj.movie_details[i].movieId+"\" data-option=\""+myObj.movie_details[i].movieLogoURL+"\" onClick=\"getSongsData(this)\">"+myObj.movie_details[i].movieName+"</p>"+
-    "</div>";
+          "<img id=\"musicImg\" style=\"height : 100%; width : 25%; float:left\" src=\"https://docs.google.com/uc?export=download&id="+myObj.movie_details[i].movieLogoURL+"\" type=\"image/jpg\" >"+
+          "</img>"+
+          "<p align=\"left\" style=\"width : 75%; cursor:pointer; float:left;\" data-id=\""+myObj.movie_details[i].movieId+"\" data-option=\""+myObj.movie_details[i].movieLogoURL+"\" onClick=\"getSongsData(this)\">"+myObj.movie_details[i].movieName+"</p>"+
+          "</div>";
         }
         bodyLeftUI.innerHTML = songBody;
-
-        var data1 = this.response;
-        var data2 = this.responseType;
-        var data3 = this.responseXML;
-        var data4 = this.responseText;
-        var data5 = this.getResponseHeader;
-
-    }
-};
-xmlhttp.open("GET", "../PHP/PHPServices/ReceiveService.php?userRequest=GetAllMovies", true);
-xmlhttp.setRequestHeader("Content-type", "application/json");
-xmlhttp.send();
+      }
+    };
+    xmlhttp.open("GET", "../PHP/PHPServices/ReceiveService.php?userRequest=GetAllMovies", true);
+    xmlhttp.setRequestHeader("Content-type", "application/json");
+    xmlhttp.send();
 }
 
 function searchBackClicked(e)
@@ -112,6 +110,8 @@ function selectSongData(e)
       alert(e.dataset.object);
       var songList = "<input type=\"checkbox\" name=\"vehicle\" value=\"Bike\"  data-info=\""+e.dataset.info+"\"  data-object=\""+e.dataset.object+"\" checked >"+e.dataset.id+"<br>";
       bodyRightTopUI.innerHTML += songList;
+      // { date: '12/1/2011', reading: 3, id: 20055 },
+      myList.push({ SongUrlId: e.dataset.info, SongUrlName: e.dataset.id, SongNo: myList.length+1});
     }
     else
     {
@@ -158,6 +158,7 @@ function AudioAction(choice)
   {
     if(doesSongStart == false)
     {
+      yourAudio.src="https://docs.google.com/uc?export=download&id="+myList[z].SongUrlId
       yourAudio['play']();
       doesSongStart = true;
       retEvent = setInterval(SongProgress, 50);
@@ -165,6 +166,12 @@ function AudioAction(choice)
   }
   else if (choice == "NextSong")
   {
+    yourAudio['pause']();
+    z=z+1;
+    yourAudio.src="https://docs.google.com/uc?export=download&id="+myList[z].SongUrlId
+    yourAudio['play']();
+    doesSongStart = true;
+    retEvent = setInterval(SongProgress, 50);
   }
   else if (choice == "Shuffle")
   {
