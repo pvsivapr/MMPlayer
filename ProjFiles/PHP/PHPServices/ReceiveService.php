@@ -61,6 +61,14 @@ else
 
 }
 
+if(strpos($method,'GET') !== false || strpos($method,'get') !== false || strpos($method,'Get') !== false)
+{
+    $json = json_decode(file_get_contents('php://input'),true);
+    $raw = $rh -> Request_Handler($userRequest, $json);
+    $response = encodeJson($raw);
+    echo $response."\n";
+}
+
 function encodeXml($responseData) {
 		// creating object of SimpleXMLElement
 		$xml = new SimpleXMLElement('<?xml version="1.0"?><mobile></mobile>');
